@@ -30,7 +30,7 @@ body {
 
   padding: 3rem 2.5rem;
   background-color: var(--btn-2);
-  background-image: url('/images/bg-main-mobile.png');
+  background-image: url('images/bg-main-mobile.png');
   background-repeat: no-repeat;
   background-position: 0 -12%;
 }
@@ -78,7 +78,7 @@ h1 {
   border-radius: .75rem;
 
   background-color: var(--btn-1);
-  background-image: url('/images/bg-pattern-2.svg');
+  background-image: url('images/bg-pattern-2.svg');
   background-repeat: no-repeat;
   background-size: 300px;
   background-position: 50% top;
@@ -191,7 +191,7 @@ footer p a {
   body {
     padding: 5.9375rem 2.5rem;
 
-    background-image: url('/images/bg-pattern-1.svg'), url('/images/bg-main-tablet.png');
+    background-image: url('images/bg-pattern-1.svg'), url('images/bg-main-tablet.png');
     background-position: top right, top left;
     background-size: 250px, contain;
   }
@@ -264,7 +264,7 @@ footer p a {
 @media (min-width: 90rem) {
   body {
     padding: 3.875rem 10.375rem;
-    background-image: url('/images/bg-pattern-1.svg'), url('/images/bg-main-desktop.png');
+    background-image: url('images/bg-pattern-1.svg'), url('images/bg-main-desktop.png');
     background-position: top right, top left;
     background-size: 300px, contain;
   }
