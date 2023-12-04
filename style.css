@@ -1,3 +1,90 @@
+/*-------------------- 
+**RESET---------------*/
+/* This reset is a copied from Andy Bell reset css */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /*--------------------
 ** DECALRE VARIABLES */
 :root {
@@ -51,7 +138,7 @@ body {
   margin-bottom: 4rem;
 }
 
-article {
+.container {
   gap: 1.25rem;
 }
 
@@ -69,7 +156,6 @@ h1 {
 /* SUBSCRIPTION LAYOUT */
 .subscription-container {
   width: 100vw;
-  height: 600px;
 
   position: relative;
   z-index: 1;
@@ -85,13 +171,8 @@ h1 {
 }
 
 .wrapper {
-  width: 250px;
-  height: 400px;
-
-  position: absolute;
-  z-index: 2;
-  top: -19%;
-
+  max-width: 220px;
+  margin-top: -6rem;
   align-self: center;
 }
 
@@ -103,9 +184,7 @@ h1 {
   background-color: var(--background);
   color: var(--btn-2);
 
-  position: absolute;
-  z-index: 3;
-  bottom: -60%;
+  margin-top: 5rem;
 }
 
 h2 {
@@ -157,15 +236,11 @@ span {
 }
 
 footer {
-  margin-top: 24.375rem;
+  margin-top: 5rem;
   gap: 2rem;
 }
 
-address {
-  font-style: normal;
-}
-
-address a {
+.email-address a {
   color: var(--btn-1);
 }
 
@@ -178,12 +253,12 @@ address a {
   fill: var(--background);
 }
 
-footer p {
+.attribution {
   margin-top: 2rem;
   text-align: center;
 }
 
-footer p a {
+.attribution a {
   color: var(--background);
 }
 
@@ -196,7 +271,7 @@ footer p a {
     background-size: 250px, contain;
   }
 
-  article {
+  .container {
     gap: 1.25rem
   }
 
@@ -212,31 +287,46 @@ footer p a {
   }
 
   h1, .intro-text {
-    padding-right: 7rem;
+    padding-right: 20rem;
+  }
+
+  .intro-text {
+    margin-bottom: 13rem;
   }
 
   .subscription-container {
     left: 0;
     width: 100%;
-    height: 37.5rem;
+    background-size: 340px;
+    background-position: 60% top;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(3, 200px);
   }
 
   .wrapper {
-    width: 270px;
-    height: 550px;
-    align-self: flex-start;
-    left: 3rem;
+    max-width: 300px;
+    grid-column: 1/4;
+    grid-row: 1/3;
+    margin-top: 0;
+    position: absolute;
+    left: 2rem;
+    top: -10rem;
   }
 
   .subscription-detail {
-    max-width: 339px;
-    align-self: flex-end;
-    bottom: -25%;
-    right: 15%;
+    max-width: 420px;
+    grid-column: 2/6;
+    grid-row: 1/4;
+    justify-self: end;
+    position: absolute;
+    margin-top: 0;
+    right: 2rem;
+    top: 10rem;
   }
 
   footer {
-    margin-top: 11rem;
+    margin-top: 10rem;
   }
 
   footer.flex-box {
@@ -247,16 +337,17 @@ footer p a {
     flex-basis: 100%;
   }
 
-  address {
+  .contact {
     flex-basis: 50%;
   }
 
   .social-media {
     flex-basis: 40%;
+    align-self: center;
     justify-content: flex-end;
   }
 
-  footer p {
+  .attribution {
     flex-basis: 100%;
   }
 }
@@ -269,7 +360,7 @@ footer p a {
     background-size: 300px, contain;
   }
 
-  article {
+  .container {
     gap: 2.5rem;
   }
 
@@ -288,12 +379,11 @@ footer p a {
   }
 
   .intro-text {
-    margin-bottom: 10rem;
+    margin-bottom: 15rem;
   }
 
   .subscription-container {
     background-position: 34% top;
-    background-size: 350px;
   }
 
   .wrapper {
@@ -303,6 +393,7 @@ footer p a {
   .subscription-detail {
     max-width: 446px;
     gap: 1.5rem;
+    right: 7rem;
   }
 
   h2 {
@@ -318,7 +409,7 @@ footer p a {
     flex-basis: 25%;
   }
 
-  address {
+  .contact {
     flex-basis: 35%;
   }
   
@@ -326,7 +417,7 @@ footer p a {
     align-self: center;
   }
 
-  footer p {
+  .attribution {
     margin-top: 2rem;
     text-align: center;
   }
